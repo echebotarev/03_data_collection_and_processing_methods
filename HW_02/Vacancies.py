@@ -20,15 +20,13 @@ def get_currency(price):
   currencies = ['USD', 'KZT', 'руб.', '₽', 'EUR']
   for currency in currencies:
     if currency in price:
-      return f' {currency}'
+      return currency
 
   return None
 
 def get_price(price, priceType):
   if not price:
     return price
-
-  currency = get_currency(price)
 
   if 'По договорённости' in price:
     price = None
@@ -86,6 +84,8 @@ def get_vacancy_data(site, vacancy):
     vacancy_data['min_price'] = get_price(vacancy_data['price'], 'min')
     vacancy_data['max_price'] = get_price(vacancy_data['price'], 'max')
 
+    vacancy_data['currency'] = get_currency(vacancy_data['price'])
+
     return vacancy_data
 
   link = vacancy.find('a', attrs = {'data-qa': 'vacancy-serp__vacancy-title'})
@@ -98,6 +98,8 @@ def get_vacancy_data(site, vacancy):
 
   vacancy_data['min_price'] = get_price(vacancy_data['price'], 'min')
   vacancy_data['max_price'] = get_price(vacancy_data['price'], 'max')
+
+  vacancy_data['currency'] = get_currency(vacancy_data['price'])
 
   return vacancy_data
 
