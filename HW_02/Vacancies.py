@@ -49,7 +49,7 @@ def get_price(price, priceType):
   else:
     price = None
 
-  return price + currency if price and currency else price
+  return int(price) if price else price
 
 def get_vacancy_name(site, vacancy):
   if site == 'hh':
