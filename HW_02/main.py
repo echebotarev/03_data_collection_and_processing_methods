@@ -5,7 +5,7 @@ from Vacancies import Vacancies
 
 main_link = 'https://russia.superjob.ru'
 
-vacancy = 'python developer' #input('Введите вакансию: ')
+vacancy = input('Введите вакансию: ')
 
 v = Vacancies(vacancy)
 pprint(v.get())
