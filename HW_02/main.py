@@ -5,7 +5,7 @@ import requests
 from pprint import pprint
 
 from HW_03.Mongo import Mongo
-mongo = Mongo()
+mongo = Mongo('jobs')
 
 from Vacancies import Vacancies
 
