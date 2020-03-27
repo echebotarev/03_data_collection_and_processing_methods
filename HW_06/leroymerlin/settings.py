@@ -66,7 +66,13 @@ LOG_LEVEL = 'DEBUG'
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
+IMAGES_STORE = './HW_06/images'
+IMAGES_THUMBS = {
+    'small': (50, 50),
+    'big': (270, 270),
+}
 ITEM_PIPELINES = {
+   'leroymerlin.pipelines.PhotosPipeline': 200,
    'leroymerlin.pipelines.LeroymerlinPipeline': 300,
 }
 
